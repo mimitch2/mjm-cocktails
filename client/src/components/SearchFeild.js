@@ -6,6 +6,7 @@ import parse from 'autosuggest-highlight/parse';
 import TextField from 'material-ui/TextField';
 import Paper from 'material-ui/Paper';
 import { MenuItem } from 'material-ui/Menu';
+import "../css/App.css"
 import { withStyles } from '@material-ui/core/styles';
 
 
@@ -79,6 +80,7 @@ function getSuggestions(value) {
 
 const styles = theme => ({
   container: {
+    fontFamily: "Oswald",
     flexGrow: 1,
     position: 'relative',
     height: 50,
@@ -129,8 +131,7 @@ class IntegrationAutosuggest extends React.Component {
   }
 
   updateSuggestions = () => {
-    console.log("update");
-    
+
     const newArr = [...this.props.drinks]
     suggestions=[];
     newArr.forEach((entry)=>{

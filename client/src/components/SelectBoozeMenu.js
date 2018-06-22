@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import List, { ListItem, ListItemText } from 'material-ui/List';
 import Menu, { MenuItem } from 'material-ui/Menu';
-// import Typography from 'material-ui/Typography'
 import "../css/App.css"
 
 const styles = theme => ({
@@ -56,7 +55,7 @@ class SimpleListMenu extends React.Component {
           >
             {/* <i class="fas fa-chevron-down"></i> */}
             <ListItemText
-              primary={<div style={{color:"white", fontSize: "14px", width: "max-content", marginLeft: "-10px", marginTop: "-3px"}}>BOOZE TYPE<i className="fas fa-chevron-down" style={{fontSize: '16px', color:"white", marginLeft:"12px"}}></i></div>}>
+              primary={<div style={{color:"white", fontSize: "14px", width: "max-content", marginLeft: "-8px", marginTop: "-3px"}}>BOOZE TYPE<i className="fas fa-chevron-down" style={{fontSize: '16px', color:"white", marginLeft:"24px"}}></i></div>}>
             </ListItemText>
           </ListItem>
         </List>

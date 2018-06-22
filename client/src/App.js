@@ -12,7 +12,6 @@ import IntegrationAutosuggest from './components/SearchFeild'
 import CheckboxLabels from './components/Checkbox.js';
 import SimpleSnackbar from './components/SnackBar.js';
 import CircularIndeterminate from './components/Progress.js';
-// import {removeFav, addFav} from './components/fetches.js';
 // import PropTypes from "prop-types";
 // import { BrowserRouter, Route, Switch } from "react-router-dom";
 

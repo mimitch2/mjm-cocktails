@@ -40,7 +40,7 @@ function FavoritesGrid(props) {
   const tileData = [...props.favorites]
   
   const getDrinkId=(e)=>{
-    props.getDrink(4, e.target.id)//Maybe need to change this back to type 4
+    props.getDrink(4, e.target.id)
     props.switchTab()
   }
 
@@ -51,8 +51,6 @@ function FavoritesGrid(props) {
   }
 
   const returnProperFavIcon=(clicked)=>{
-    // console.log(clicked);
-    
     if(clicked){
       return {
         fontSize: "24px",
@@ -71,7 +69,7 @@ function FavoritesGrid(props) {
       <GridList cellHeight={350}
         className={classes.gridList}>
         {/* <GridListTile key="ListSubheader" cols={2} style={{ height: 'auto' }} > */}
-        <ListSubheader  disableSticky={false} cols={2} style={{ fontFamily: "Jura", fontSize: "1.6em", fontWeight: "bold", color: "white", height: "auto", padding: "10px"}} component="div" >
+        <ListSubheader  disableSticky={false} cols={2} style={{ fontFamily: "Oswald", fontSize: "2.0em", fontWeight: "500", color: "white", height: "auto", padding: "10px"}} component="div" >
           Favorites
         </ListSubheader>
         {/* </GridListTile> */}

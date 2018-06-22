@@ -7,6 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 const styles = {
   root: {
+    
     color: "secondary",
     '&$checked': {
       color: "secondary",
@@ -36,7 +37,6 @@ class CheckboxLabels extends React.Component {
   };
 
   render() {
-    // console.log("render", this.state.checkedG);
     const { classes } = this.props;
     return (
       <FormGroup row>
@@ -52,7 +52,7 @@ class CheckboxLabels extends React.Component {
               }}
             />
           }
-          label={this.props.label}
+          label={<span style={{fontFamily: "Oswald", fontWeight: "200"}}>{this.props.label}</span>}
         />
       </FormGroup>
     );

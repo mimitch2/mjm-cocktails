@@ -59,7 +59,7 @@ class FullWidthTabs extends React.Component {
 
         <AppBar position="sticky" color="default" style={{backgroundColor: 'rgb(60, 60, 60)', color: "white"}}>
 
-          <span style={{ fontSize: "24px", marginTop: "8px", marginLeft: "10px"}}>I NEED A DRINK</span> 
+          <span style={{ fontSize: "24px", marginTop: "8px", marginLeft: "10px", fontWeight: "500"}}>I NEED A DRINK</span> 
 
           <div className="icon" style={{marginBottom: "-40px", marginTop: "6px", marginLeft:"10px", display: "flex", alignItems: "center"}}>
             <img src="/img/MartiniGlass.png" alt="" height="55px" width="55px" />

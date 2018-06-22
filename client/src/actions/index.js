@@ -1,5 +1,7 @@
 
 
+
+
 export function loadFullData() {
   return function (dispatch) {
     fetch("http://localhost:3001/getAllData").then( (response) => {
@@ -17,6 +19,7 @@ export function fullDataLoaded(result) {
     value: result
   };
 }
+
 
 export function loadFavorites() {
   return function (dispatch) {

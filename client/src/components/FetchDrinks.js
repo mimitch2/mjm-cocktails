@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import IconButton from 'material-ui/IconButton';
 import FavoriteIcon from 'material-ui-icons/Favorite';
 import Grid from '@material-ui/core/Grid'
+import "../css/App.css"
 
 const style = {
   card:{
@@ -10,13 +11,14 @@ const style = {
     maxWidth: '800px',
     height: 'auto',
     marginTop: '20px',
+    marginBottom: "50px",
     boxShadow: "0px 1px 5px 0px grey",
     borderRadius: "8px"
 
   },
   icon:{
     width: "48px",
-    marginTop:"22px",
+    marginTop:"18px",
     marginLeft: "20px"
   },
   cocktailImage: {
@@ -31,7 +33,7 @@ const style = {
     marginLeft: '40px',
     marginTop: '40spx',
     maxWidth: "350px",
-    fontSize: "20px",
+    fontSize: "18px",
     height: "auto"
   },
   instructions: {
@@ -40,11 +42,11 @@ const style = {
   },
   button: {
     color: 'white',
-    fontSize: "30px"
+    fontSize: "40px"
   },
   buttonRed: {
     color: "red",
-    fontSize: "30px"
+    fontSize: "40px"
   }
 }
 
@@ -76,7 +78,7 @@ class FetchDrinks extends Component {
                    <FavoriteIcon style={this.returnProperFavIcon()} />
                  </IconButton>
                </div>
-               <h1 id = "drink-name" style={{paddingTop: "10px", width: "maxContent", fontSize: "34px"}}>{this.props.myDrink.strDrink}</h1>
+               <h1 id = "drink-name" style={{paddingTop: "10px", width: "maxContent", fontSize: "32px"}}>{this.props.myDrink.strDrink}</h1>
              </div>
            </Grid>
 
