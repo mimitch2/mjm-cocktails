@@ -54,9 +54,9 @@ class SimpleListMenu extends React.Component {
             aria-label="Choose by booze type"
             onClick={this.handleClickListItem}
           >
-
+            {/* <i class="fas fa-chevron-down"></i> */}
             <ListItemText
-              primary={<div style={{color:"white", fontSize: "14px", width: "max-content", marginLeft: "-10px", marginTop: "-3px"}}>BOOZE TYPE<i className="fas fa-sort-down" style={{fontSize: '19px', color:"white", marginLeft:"12px"}}></i></div>}>
+              primary={<div style={{color:"white", fontSize: "14px", width: "max-content", marginLeft: "-10px", marginTop: "-3px"}}>BOOZE TYPE<i className="fas fa-chevron-down" style={{fontSize: '16px', color:"white", marginLeft:"12px"}}></i></div>}>
             </ListItemText>
           </ListItem>
         </List>
@@ -69,7 +69,7 @@ class SimpleListMenu extends React.Component {
         >
           {this.props.options.map((option, index) => (
             <MenuItem
-              style={{fontFamily: "Jura"}}
+              style={{fontFamily: "Jura", width: 130}}
               key={option}
               selected={index === this.state.selectedIndex}
               onClick={event => this.handleMenuItemClick(event, index)}

@@ -54,12 +54,10 @@ class App extends Component {
   componentDidUpdate = (prevProps) => {
     if (prevProps.fullData !== this.props.fullData) {
       this.setState({ 
-        alchOnlyData: this.props.fullData.filter(drk => drk.strAlcoholic === "Alcoholic"),
+        alchOnlyData: this.props.fullData.filter(drk => drk.strAlcoholic === "Alcoholic"),//******put this in redux action */
         favorites: this.props.favorites
       })
-      
       this.getNewDrink(1, null)
-
       this.parseBoozeSearch()
    
     }
@@ -82,8 +80,6 @@ class App extends Component {
   //****************** parseBoozeSearch *************************************/
 
   parseBoozeSearch = () => { 
-    console.log("parse");
-    
     const tempArr =  []
     boozeOptions.forEach((booze)=> {
       tempArr[booze.toLowerCase()] = []
@@ -221,9 +217,9 @@ filterAlchSwitch = (state) => {
   //*************** render **********************************/
 
  render() {
-   //  if (!this.state.isLoaded){
-   //    return <CircularIndeterminate />
-   //  }
+   if (!this.state.isLoaded){
+     return <CircularIndeterminate />
+   }
    return ( <MuiThemeProvider theme={customTheme}>
      <div className="App">
 
