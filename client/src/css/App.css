@@ -1,0 +1,23 @@
+* {
+  /* font-family: 'Roboto Condensed', sans-serif; */
+  /* font-family: 'Roboto Mono', sans-serif; */
+  /* font-family: 'Helvetica'; */
+  font-family: 'Jura', sans-serif!important;
+
+  /* font-family: 'Oswald', sans-serif!important; */
+  /* font-family: 'Monda', sans-serif!important; */
+  /* font-family: 'Handlee', sans-serif!important; */
+    /* font-family: 'Fjalla One', sans-serif!important; */
+}
+
+body{
+  width: 100%;
+}
+
+#drink-name, #instruction-p {
+  padding: 10px;
+}
+
+.MuiTypography-body1-81 {
+  overflow-x: hidden;
+}
