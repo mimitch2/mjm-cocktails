@@ -57,8 +57,11 @@ class App extends Component {
         alchOnlyData: this.props.fullData.filter(drk => drk.strAlcoholic === "Alcoholic"),
         favorites: this.props.favorites
       })
-      this.parseBoozeSearch()
+      
       this.getNewDrink(1, null)
+
+      this.parseBoozeSearch()
+   
     }
   }
      
@@ -78,7 +81,9 @@ class App extends Component {
     
   //****************** parseBoozeSearch *************************************/
 
-  parseBoozeSearch = () => {    
+  parseBoozeSearch = () => { 
+    console.log("parse");
+    
     const tempArr =  []
     boozeOptions.forEach((booze)=> {
       tempArr[booze.toLowerCase()] = []

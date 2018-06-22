@@ -122,10 +122,15 @@ class IntegrationAutosuggest extends React.Component {
   }
 
   componentDidMount() {
-    this.updateSuggestions()
+    setTimeout(() => {
+      this.updateSuggestions()
+    }, 2000);
+    
   }
 
   updateSuggestions = () => {
+    console.log("update");
+    
     const newArr = [...this.props.drinks]
     suggestions=[];
     newArr.forEach((entry)=>{
@@ -133,8 +138,8 @@ class IntegrationAutosuggest extends React.Component {
     })
   }
 
-  componentWillReceiveProps(newProps) {
-    if(newProps.alcSwitch !== this.props.alcSwitch)
+  componentDidUpdate(prevProps) {
+    if(prevProps.alcSwitch !== this.props.alcSwitch)
       setTimeout(() => {
         this.updateSuggestions();
       }, 50);
