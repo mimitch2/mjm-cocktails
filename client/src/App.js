@@ -216,9 +216,9 @@ filterAlchSwitch = (state) => {
   //*************** render **********************************/
 
  render() {
-   if (!this.state.isLoaded){
-     return <CircularIndeterminate />
-   }
+//    if (!this.state.isLoaded){
+//      return <CircularIndeterminate />
+//    }
    return ( <MuiThemeProvider theme={customTheme}>
      <div className="App">
 

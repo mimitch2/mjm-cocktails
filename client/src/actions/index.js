@@ -1,10 +1,10 @@
 
 
-
+// http://localhost:3001
 
 export function loadFullData() {
   return function (dispatch) {
-    fetch("http://localhost:3001/getAllData").then( (response) => {
+    fetch("https://mjm-cocktail-app.herokuapp.com/getAllData").then( (response) => {
       return response.json();
     }).then(
       (result) => {
@@ -23,7 +23,7 @@ export function fullDataLoaded(result) {
 
 export function loadFavorites() {
   return function (dispatch) {
-    fetch("http://localhost:3001/favorites").then( (response) => {
+    fetch("https://mjm-cocktail-app.herokuapp.com/favorites").then( (response) => {
       return response.json();
     }).then((favorites) => {
       dispatch(favoritesLoaded(favorites));
@@ -51,7 +51,7 @@ export function favoritesLoaded(favorites) {
   
 export function addFav(fav) {
   return function (dispatch) {
-    fetch("http://localhost:3001/favorite", {
+    fetch("https://mjm-cocktail-app.herokuapp.com/favorite", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(fav)
@@ -65,7 +65,7 @@ export function addFav(fav) {
       
 export function deleteFav(id) {
   return function (dispatch) {
-    fetch("http://localhost:3001/favorite/" + id, {
+    fetch("https://mjm-cocktail-app.herokuapp.com/favorite/" + id, {
       method: "DELETE"
     }).then(res => res.json())
       .then(() => {
