@@ -8,7 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import FavoritesGrid from "../containers/FavoritesGridContainer.js"
 import Badge from '@material-ui/core/Badge';
-import SubmitForm from './SubmitForm';
+import SubmitForm from '../containers/SubmitFormContainer';
 
 
 function TabContainer({ children, dir }) {
@@ -103,7 +103,7 @@ class FullWidthTabs extends React.Component {
               switchTab={this.switchTabsOnFavClick}/> 
           </TabContainer>
 
-          <TabContainer dir={theme.direction}><SubmitForm fullData={this.props.fullData}/></TabContainer>
+          <TabContainer dir={theme.direction}><SubmitForm /></TabContainer>
 
           <TabContainer dir={theme.direction}>Put something fucking awesome here</TabContainer>
 
