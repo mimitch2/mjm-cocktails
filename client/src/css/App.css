@@ -11,18 +11,19 @@
   /* font-family: 'Monda', sans-serif!important; */
   /* font-family: 'Handlee', sans-serif!important; */
     /* font-family: 'Fjalla One', sans-serif!important; */
- 
 }
 
 body{
   width: 100%;
+  overflow-x: hidden!important;
+
 }
 
 #drink-name, #instruction-p {
   padding: 10px;
 }
 
-.MuiTypography-body1-34 {
+.react-swipeable-view-container > div {
   overflow-x: hidden!important;
 }
 
