@@ -10,7 +10,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import CloseIcon from '@material-ui/icons/Close';
 import CheckboxLabels from './AlchCheckbox.js';
 import AlertDialogSlide from './Alert'
-import {addDrink} from './fetches.js'
+// import {addDrink} from './fetches.js'
 import '../css/SubmitForm.css'
 
 
@@ -140,6 +140,7 @@ class SubmitForms extends React.Component {
   idSort = () => {
     const idSort = this.props.fullData.map(id => id.idDrink).sort()
     this.setState({lastId: idSort[idSort.length -1]})
+    
   }
 
   //******************** handleSubmit **********************/
@@ -169,7 +170,7 @@ class SubmitForms extends React.Component {
         submitSwitch: this.state.submitSwitch + 1,
         lastId: id
       })
-      addDrink(tempDrink);
+      this.props.addDrink(tempDrink);
       document.getElementById('list').innerHTML = ""
     }else{
       this.setState({alertSwitch: this.state.alertSwitch + 1})

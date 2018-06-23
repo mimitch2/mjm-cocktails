@@ -74,6 +74,17 @@ export function deleteFav(id) {
   };
 }
 
+export function addDrink(data) {
+  return function (dispatch) {
+    fetch("https://mjm-cocktail-app.herokuapp.com/postDrink", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(data)
+    }).then(() => {
+      dispatch(loadFullData());
+    });
+  };
+}
 
       
 // export function updateUser(id, user) {

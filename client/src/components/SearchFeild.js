@@ -80,7 +80,6 @@ function getSuggestions(value) {
 
 const styles = theme => ({
   container: {
-    fontFamily: "Oswald",
     flexGrow: 1,
     position: 'relative',
     height: 50,
@@ -124,14 +123,10 @@ class IntegrationAutosuggest extends React.Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.updateSuggestions()
-    }, 2000);
-    
+    this.updateSuggestions()
   }
 
   updateSuggestions = () => {
-
     const newArr = [...this.props.drinks]
     suggestions=[];
     newArr.forEach((entry)=>{
@@ -139,12 +134,12 @@ class IntegrationAutosuggest extends React.Component {
     })
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if(prevProps.alcSwitch !== this.props.alcSwitch)
-  //     setTimeout(() => {
-  //       this.updateSuggestions();
-  //     }, 50);
-  // }
+  componentWillReceiveProps(newProps) {
+    if(newProps.alcSwitch !== this.props.alcSwitch)
+      setTimeout(() => {
+        this.updateSuggestions();
+      }, 50);
+  }
 
   handleSuggestionsFetchRequested = ({ value }) => {
     this.setState({

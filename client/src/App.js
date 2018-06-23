@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-// import { MuiThemeProvider } from '@material-ui/core/styles';
-// import customTheme from "./components/Theme.js"
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import customTheme from "./components/Theme.js"
 import Grid from '@material-ui/core/Grid'
 import './css/App.css';
 import FullWidthTabs from './containers/TabBarContainer.js'
@@ -9,7 +9,7 @@ import TitlebarGridList from './containers/GridListContainer.js'
 import SimpleListMenu from './components/SelectBoozeMenu'
 import RaisedButtons from './components/RaisedButtons.js'
 import IntegrationAutosuggest from './components/SearchFeild'
-// import CheckboxLabels from './components/Checkbox.js';
+import CheckboxLabels from './components/Checkbox.js';
 import SimpleSnackbar from './components/SnackBar.js';
 import CircularIndeterminate from './components/Progress.js';
 // import PropTypes from "prop-types";
@@ -32,7 +32,7 @@ class App extends Component {
     super(props);
     this.state = {
       // fullData: null,
-      // alchOnlyData: [],
+      alchOnlyData: [],
       isLoaded: false,
       returnedDrink: [{
         _id: "5b2ab5ab04978014c1e980a6",idDrink: "13839",strDrink: "Manhattan",strCategory: "Cocktail",strIBA: "Unforgettables",strAlcoholic: "Alcoholic",strGlass: "Cocktail glass",strInstructions: "Stirred over ice, strained into a chilled glass, garnished, and seup.",strDrinkThumb: "/img/ec2jtz1504350429.jpg",strIngredient1: "Sweet Vermouth",strIngredient2: "Bourbon",strIngredient3: "Angostura bitters",strIngredient4: "Ice",strIngredient5: "Maraschino cherry",strIngredient6: "Orange peel",strMeasure1: "3/4 oz ",strMeasure2: "2 1/2 oz Blended ",strMeasure3: "dash ",strMeasure4: "2 or 3 ",strMeasure5: "1 ",strMeasure6: "1 twist of ",dateModified: "2017-09-02 12:07:09",
@@ -42,7 +42,7 @@ class App extends Component {
       type: 0,
       boozeType: "",
       boozeSearchResults: {},
-      // nonAlcSwitch: false,
+      nonAlcSwitch: false,
       sbSwitch: 1,
       favUnfavDrinkData: null
     };
@@ -56,7 +56,7 @@ class App extends Component {
   componentDidUpdate = (prevProps) => {
     if (prevProps.fullData !== this.props.fullData) {
       this.setState({ 
-        // alchOnlyData: this.props.fullData.filter(drk => drk.strAlcoholic === "Alcoholic"),
+        alchOnlyData: this.props.fullData.filter(drk => drk.strAlcoholic === "Alcoholic"),
         favorites: this.props.favorites
       })
       this.getNewDrink(1, null)
@@ -105,30 +105,30 @@ class App extends Component {
 
   //****************** filterAlchSwitch *************************************/
 
-  // filterAlchSwitch = (state) => {
-  //   if(state === false){
-  //     this.setState({nonAlcSwitch: false})
-  //   }else{
-  //     this.setState({nonAlcSwitch: true})
-  //   }
-  // }
-
-  //****************** returnFilteredDrinks *************************************/
-
-  // returnFilteredDrinks = () => {
-  //   if(this.state.nonAlcSwitch){
-  //     return this.props.fullData
-  //   }else{
-  //     return this.state.alchOnlyData
-  //   }
-  // }
+  filterAlchSwitch = (state) => {
+    if(state === false){
+      this.setState({nonAlcSwitch: false})
+    }else{
+      this.setState({nonAlcSwitch: true})
+    }
+  }
+  
+    //****************** returnFilteredDrinks *************************************/
+  
+    returnFilteredDrinks = () => {
+      if(this.state.nonAlcSwitch){
+        return this.props.fullData
+      }else{
+        return this.state.alchOnlyData
+      }
+    }
 
   //****************** getNewDrink *************************************/
 
 
   getNewDrink=(type, data)=>{
     setTimeout(() => {
-      const dataArr = [...this.props.fullData]
+      const dataArr = [...this.returnFilteredDrinks()]
       let drink = [];
       if (type === 1 || !type){//get random drink
         drink = [dataArr[Math.floor(Math.random() * dataArr.length)]]
@@ -155,7 +155,7 @@ class App extends Component {
           isLoaded: true
         });
         this.makeRecipeList()
-      }, 200);
+      }, 20);
     }, 10);
   }
 
@@ -182,18 +182,18 @@ class App extends Component {
   //************************ renderDrink *************************/
 
   renderDrink=()=>{
-    // if(this.state.isLoaded){
-    if(this.state.type === 2){
-      return <TitlebarGridList returnedDrink={this.state.returnedDrink}
-        addRemoveFav={this.dealWithFavorites}
-        getDrink = {(type, data)=>this.getNewDrink(type, data)}
-        boozeType={this.state.boozeType} /* favorites={this.state.favorites} */ />
+    if(this.state.isLoaded){
+      if(this.state.type === 2){
+        return <TitlebarGridList returnedDrink={this.state.returnedDrink}
+          addRemoveFav={this.dealWithFavorites}
+          getDrink = {(type, data)=>this.getNewDrink(type, data)}
+          boozeType={this.state.boozeType} />
+      }
+      return (<FetchDrinks 
+        recipe = {this.makeRecipeList()}
+        addRemoveFav={this.dealWithFavorites} myDrink={this.state.returnedDrink[0]}
+      />)
     }
-    return (<FetchDrinks 
-      recipe = {this.makeRecipeList()}
-      addRemoveFav={this.dealWithFavorites} myDrink={this.state.returnedDrink[0]}
-      /* favorites={this.state.favorites} */ />)
-    // }
   }
 
   //********************* dealWithFavorites *****************************/
@@ -222,48 +222,48 @@ class App extends Component {
      return <CircularIndeterminate />
    }
    return ( 
-   //  <MuiThemeProvider theme={customTheme}>
-     <div className="App">
+     <MuiThemeProvider theme={customTheme}>
+       <div className="App">
 
-       <FullWidthTabs
-         getDrink = {(type, data)=>this.getNewDrink(type, data)}
-         addRemoveFav={this.dealWithFavorites} lastId={this.idSort}
-         drinkView = {
-           <Grid container style = {styles.flex}>
-             <Grid item xlg={12}>{this.renderDrink()}
-             </Grid>
-           </Grid>
-         }
-         controls = {
-           <div>
+         <FullWidthTabs
+           getDrink = {(type, data)=>this.getNewDrink(type, data)}
+           addRemoveFav={this.dealWithFavorites} lastId={this.idSort}
+           drinkView = {
              <Grid container style = {styles.flex}>
-               <Grid item xlg={4}>
-                 <RaisedButtons getDrink={(type, data)=>this.getNewDrink(type, data)}/>
-               </Grid>
-               <Grid item xlg={4}>
-                 <SimpleListMenu 
-                   getDrink={(type, data)=>this.getNewDrink(type, data)}
-                   options={boozeOptions} />
-               </Grid>
-               <Grid item xlg={4}>
-                 <div style={{marginLeft: "20px"}}>
-                   <IntegrationAutosuggest getDrink={(type, data)=>this.getNewDrink(type, data)} drinks={this.props.fullData} /* alcSwitch={this.state.nonAlcSwitch} */ />
-                 </div>
+               <Grid item xlg={12}>{this.renderDrink()}
                </Grid>
              </Grid>
-             {/* <Grid container style={ {justifyContent: "center", marginLeft: "173px"} }>
-                  <Grid item xlg={12}>
-                    <CheckboxLabels label="Include Non-Alcoholic Drinks" action ={this.filterAlchSwitch} />
-                  </Grid>
-                </Grid> */}
-           </div>}
-       />
-       <div id = "snack-bar-div" > 
-         <SimpleSnackbar switch={this.state.sbSwitch} drinkData={this.state.favUnfavDrinkData}/>
-       </div>
+           }
+           controls = {
+             <div>
+               <Grid container style = {styles.flex}>
+                 <Grid item xlg={4}>
+                   <RaisedButtons getDrink={(type, data)=>this.getNewDrink(type, data)}/>
+                 </Grid>
+                 <Grid item xlg={4}>
+                   <SimpleListMenu 
+                     getDrink={(type, data)=>this.getNewDrink(type, data)}
+                     options={boozeOptions} />
+                 </Grid>
+                 <Grid item xlg={4}>
+                   <div style={{marginLeft: "20px"}}>
+                     <IntegrationAutosuggest getDrink={(type, data)=>this.getNewDrink(type, data)} drinks={this.returnFilteredDrinks()} alcSwitch={this.state.nonAlcSwitch} />
+                   </div>
+                 </Grid>
+               </Grid>
+               <Grid container style={ {justifyContent: "center", marginLeft: "173px"} }>
+                 <Grid item xlg={12}>
+                   <CheckboxLabels label="Include Non-Alcoholic Drinks" action ={this.filterAlchSwitch} />
+                 </Grid>
+               </Grid>
+             </div>}
+         />
+         <div id = "snack-bar-div" > 
+           <SimpleSnackbar switch={this.state.sbSwitch} drinkData={this.state.favUnfavDrinkData}/>
+         </div>
      
-     </div>
-   //  </MuiThemeProvider>
+       </div>
+     </MuiThemeProvider>
    );
 
  }
