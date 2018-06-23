@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 import match from 'autosuggest-highlight/match';
 import parse from 'autosuggest-highlight/parse';
-import TextField from 'material-ui/TextField';
-import Paper from 'material-ui/Paper';
-import { MenuItem } from 'material-ui/Menu';
+import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
+import MenuItem from '@material-ui/core/MenuItem';
 import "../css/App.css"
 import { withStyles } from '@material-ui/core/styles';
 
@@ -139,12 +139,12 @@ class IntegrationAutosuggest extends React.Component {
     })
   }
 
-  componentDidUpdate(prevProps) {
-    if(prevProps.alcSwitch !== this.props.alcSwitch)
-      setTimeout(() => {
-        this.updateSuggestions();
-      }, 50);
-  }
+  // componentDidUpdate(prevProps) {
+  //   if(prevProps.alcSwitch !== this.props.alcSwitch)
+  //     setTimeout(() => {
+  //       this.updateSuggestions();
+  //     }, 50);
+  // }
 
   handleSuggestionsFetchRequested = ({ value }) => {
     this.setState({

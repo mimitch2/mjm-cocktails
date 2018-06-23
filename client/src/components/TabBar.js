@@ -1,10 +1,10 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import "../css/App.css"
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import SwipeableViews from 'react-swipeable-views';
-import AppBar from 'material-ui/AppBar';
-import Tabs, { Tab } from 'material-ui/Tabs';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import FavoritesGrid from "../containers/FavoritesGridContainer.js"
 import Badge from '@material-ui/core/Badge';
@@ -92,15 +92,15 @@ class FullWidthTabs extends React.Component {
           index={this.state.value}
           onChangeIndex={this.handleChangeIndex}>
                 
-          <TabContainer dir={theme.direction}>{this.props.controls}{this.props.drinkView}</TabContainer>
+          <TabContainer dir={theme.direction}>{this.props.controls}{this.props.drinkView}</TabContainer> 
 
           {/* *********** Try putting Link around  this container******** */}
           <TabContainer dir={theme.direction}>
-            <FavoritesGrid /* favorites={this.props.favorites} */
+            <FavoritesGrid 
               returnedDrink={this.props.returnedDrink}
               addRemoveFav={this.props.addRemoveFav} 
               getDrink={this.props.getDrink} 
-              switchTab={this.switchTabsOnFavClick}/>
+              switchTab={this.switchTabsOnFavClick}/> 
           </TabContainer>
 
           <TabContainer dir={theme.direction}><SubmitForm fullData={this.props.fullData}/></TabContainer>
@@ -114,9 +114,9 @@ class FullWidthTabs extends React.Component {
   }
 }
 
-// FullWidthTabs.propTypes = {
-//   classes: PropTypes.object.isRequired,
-//   theme: PropTypes.object.isRequired,
-// };
+FullWidthTabs.propTypes = {
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles, { withTheme: true })(FullWidthTabs);

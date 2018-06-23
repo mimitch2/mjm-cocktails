@@ -14,8 +14,6 @@ mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
 // mongoose.connect("mongodb://mimitch:Bladerunner80@ds133550.mlab.com:33550/cocktails");
 
-// mongodburi mongodb://mimitch:Bladerunner80@ds133550.mlab.com:33550/cocktails
-
 mongoose.connect(process.env.mongodburi).then(
   () => { 
     console.log("mongoose connected successfully");
@@ -32,11 +30,11 @@ const FavoriteRoutes = require ("./routes/FavoriteRoutes")
 app.use(FavoriteRoutes)
 const DrinksRoutes = require ("./routes/DrinksRoutes")
 app.use(DrinksRoutes)
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
-// app.get('*', function(req, res) {
-//   res.sendFile(path.join(__dirname + '/public/index.html'));
-// });
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/index.html'));
+});
 
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
