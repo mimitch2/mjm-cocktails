@@ -32,14 +32,14 @@ class App extends Component {
     super(props);
     this.state = {
       // fullData: null,
-      alchOnlyData: [],
+      // alchOnlyData: [],
       isLoaded: false,
       returnedDrink: [],
       favorites: this.props.favorites,
       type: 0,
       boozeType: "",
       boozeSearchResults: {},
-      nonAlcSwitch: false,
+      // nonAlcSwitch: false,
       sbSwitch: 1,
       favUnfavDrinkData: null
     };
@@ -53,7 +53,7 @@ class App extends Component {
   componentDidUpdate = (prevProps) => {
     if (prevProps.fullData !== this.props.fullData) {
       this.setState({ 
-        alchOnlyData: this.props.fullData.filter(drk => drk.strAlcoholic === "Alcoholic"),//******put this in redux action */
+        // alchOnlyData: this.props.fullData.filter(drk => drk.strAlcoholic === "Alcoholic"),
         favorites: this.props.favorites
       })
       this.getNewDrink(1, null)
@@ -102,30 +102,30 @@ class App extends Component {
 
   //****************** filterAlchSwitch *************************************/
 
-filterAlchSwitch = (state) => {
-  if(state === false){
-    this.setState({nonAlcSwitch: false})
-  }else{
-    this.setState({nonAlcSwitch: true})
-  }
-}
+  // filterAlchSwitch = (state) => {
+  //   if(state === false){
+  //     this.setState({nonAlcSwitch: false})
+  //   }else{
+  //     this.setState({nonAlcSwitch: true})
+  //   }
+  // }
 
   //****************** returnFilteredDrinks *************************************/
 
-  returnFilteredDrinks = () => {
-    if(this.state.nonAlcSwitch){
-      return this.props.fullData
-    }else{
-      return this.state.alchOnlyData
-    }
-  }
+  // returnFilteredDrinks = () => {
+  //   if(this.state.nonAlcSwitch){
+  //     return this.props.fullData
+  //   }else{
+  //     return this.state.alchOnlyData
+  //   }
+  // }
 
   //****************** getNewDrink *************************************/
 
 
   getNewDrink=(type, data)=>{
     setTimeout(() => {
-      const dataArr = [...this.returnFilteredDrinks()]
+      const dataArr = [...this.props.fullData]
       let drink = [];
       if (type === 1 || !type){//get random drink
         drink = [dataArr[Math.floor(Math.random() * dataArr.length)]]
@@ -219,48 +219,48 @@ filterAlchSwitch = (state) => {
      return <CircularIndeterminate />
    }
    return ( 
-   //  <MuiThemeProvider theme={customTheme}>
-     <div className="App">
+     <MuiThemeProvider theme={customTheme}>
+       <div className="App">
 
-       <FullWidthTabs
-         getDrink = {(type, data)=>this.getNewDrink(type, data)}
-         addRemoveFav={this.dealWithFavorites} lastId={this.idSort}
-         drinkView = {
-           <Grid container style = {styles.flex}>
-             <Grid item xlg={12}>{this.renderDrink()}
-             </Grid>
-           </Grid>
-         }
-         controls = {
-           <div>
+         <FullWidthTabs
+           getDrink = {(type, data)=>this.getNewDrink(type, data)}
+           addRemoveFav={this.dealWithFavorites} lastId={this.idSort}
+           drinkView = {
              <Grid container style = {styles.flex}>
-               <Grid item xlg={4}>
-                 <RaisedButtons getDrink={(type, data)=>this.getNewDrink(type, data)}/>
-               </Grid>
-               <Grid item xlg={4}>
-                 <SimpleListMenu 
-                   getDrink={(type, data)=>this.getNewDrink(type, data)}
-                   options={boozeOptions} />
-               </Grid>
-               <Grid item xlg={4}>
-                 <div style={{marginLeft: "20px"}}>
-                   <IntegrationAutosuggest getDrink={(type, data)=>this.getNewDrink(type, data)} drinks={this.returnFilteredDrinks()} alcSwitch={this.state.nonAlcSwitch} />
-                 </div>
+               <Grid item xlg={12}>{this.renderDrink()}
                </Grid>
              </Grid>
-             <Grid container style={ {justifyContent: "center", marginLeft: "173px"} }>
-               <Grid item xlg={12}>
-                 <CheckboxLabels label="Include Non-Alcoholic Drinks" action ={this.filterAlchSwitch} />
+           }
+           controls = {
+             <div>
+               <Grid container style = {styles.flex}>
+                 <Grid item xlg={4}>
+                   <RaisedButtons getDrink={(type, data)=>this.getNewDrink(type, data)}/>
+                 </Grid>
+                 <Grid item xlg={4}>
+                   <SimpleListMenu 
+                     getDrink={(type, data)=>this.getNewDrink(type, data)}
+                     options={boozeOptions} />
+                 </Grid>
+                 <Grid item xlg={4}>
+                   <div style={{marginLeft: "20px"}}>
+                     <IntegrationAutosuggest getDrink={(type, data)=>this.getNewDrink(type, data)} drinks={this.props.fullData} /* alcSwitch={this.state.nonAlcSwitch} */ />
+                   </div>
+                 </Grid>
                </Grid>
-             </Grid>
-           </div>}
-       />
-       <div id = "snack-bar-div" > 
-         <SimpleSnackbar switch={this.state.sbSwitch} drinkData={this.state.favUnfavDrinkData}/>
-       </div>
+               {/* <Grid container style={ {justifyContent: "center", marginLeft: "173px"} }>
+                 <Grid item xlg={12}>
+                   <CheckboxLabels label="Include Non-Alcoholic Drinks" action ={this.filterAlchSwitch} />
+                 </Grid>
+               </Grid> */}
+             </div>}
+         />
+         <div id = "snack-bar-div" > 
+           <SimpleSnackbar switch={this.state.sbSwitch} drinkData={this.state.favUnfavDrinkData}/>
+         </div>
      
-     </div>
-   //  </MuiThemeProvider>
+       </div>
+     </MuiThemeProvider>
    );
 
  }
