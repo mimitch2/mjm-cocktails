@@ -33,13 +33,11 @@ const DrinksRoutes = require ("./routes/DrinksRoutes")
 app.use(DrinksRoutes)
 // app.use(express.static("public"));
 
-const port = process.env.PORT || 3001;
-
 // app.get('*', function(req, res) {
 //   res.sendFile(path.join(__dirname + '/public/index.html'));
 // });
 
-
+const port = process.env.PORT || 3001;
 app.listen(port, (err) => {
   if (err) {
     return console.log("Error", err);

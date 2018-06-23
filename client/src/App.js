@@ -58,7 +58,6 @@ class App extends Component {
       })
       this.getNewDrink(1, null)
       this.parseBoozeSearch()
-   
     }
   }
      
@@ -153,7 +152,7 @@ filterAlchSwitch = (state) => {
           isLoaded: true
         });
         this.makeRecipeList()
-      }, 20);
+      }, 200);
     }, 10);
   }
 
@@ -219,7 +218,8 @@ filterAlchSwitch = (state) => {
    if (!this.state.isLoaded){
      return <CircularIndeterminate />
    }
-   return ( <MuiThemeProvider theme={customTheme}>
+   return ( 
+   //  <MuiThemeProvider theme={customTheme}>
      <div className="App">
 
        <FullWidthTabs
@@ -260,7 +260,7 @@ filterAlchSwitch = (state) => {
        </div>
      
      </div>
-   </MuiThemeProvider>
+   //  </MuiThemeProvider>
    );
 
  }
