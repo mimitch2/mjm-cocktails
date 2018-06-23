@@ -27,7 +27,7 @@ const styles = theme => ({
   },
   padding: {
     padding: `0 ${theme.spacing.unit * 2}px`
-  },
+  }
 });
 
 class FullWidthTabs extends React.Component {
@@ -35,7 +35,6 @@ class FullWidthTabs extends React.Component {
     value: 0
   };
   
-
   handleChange = (event, value) => {
     this.setState({ value });
   };

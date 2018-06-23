@@ -1,7 +1,8 @@
-.root {
+.submit-form-root  {
     display: grid;
     grid-template-columns: 30px auto 30px;
     grid-template-rows: 30px auto 30px auto 30px;
+   
   }
 
   .upper{
@@ -73,6 +74,11 @@
   .input {
     display: none;
   }
+
+  /* #name, #measure, #ingredient, #instructions {
+    font-family: Oswald;
+    font-weight: 200;
+  } */
   /* .MuiFormLabel-root-90{
     color: white!important;
     opacity: .6;
@@ -88,6 +94,6 @@
   }
   #checkbox-color{
     color: white!important
-  } */
-  /* MuiInput-root-95.MuiInput-formControl-96.MuiInput-underline-99:before{
-  } */
+  } 
+  /* /* MuiInput-root-95.MuiInput-formControl-96.MuiInput-underline-99:before{
+  } */ 

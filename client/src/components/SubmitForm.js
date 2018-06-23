@@ -10,7 +10,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 import CloseIcon from '@material-ui/icons/Close';
 import CheckboxLabels from './AlchCheckbox.js';
 import AlertDialogSlide from './Alert'
-// import {addDrink} from './fetches.js'
 import '../css/SubmitForm.css'
 
 
@@ -220,16 +219,13 @@ class SubmitForms extends React.Component {
     const { classes } = this.props;
     
     return (
-      <div className="root">
+      <div className="submit-form-root">
    
         <form className = "upper" noValidate autoComplete="off" id="form">
           <div className="upperLeft">
             
             <div>
               <TextField
-                // InputProps={{
-                //   className: classes.white
-                // }}
                 id="name" label="Drink Name" 
                 className={classes.lgTextField}
                 value={this.state.name} onChange={this.handleChange}
