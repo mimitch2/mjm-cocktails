@@ -14,8 +14,6 @@ mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
 // mongoose.connect("mongodb://mimitch:Bladerunner80@ds133550.mlab.com:33550/cocktails");
 
-// mongodburi mongodb://mimitch:Bladerunner80@ds133550.mlab.com:33550/cocktails
-
 mongoose.connect(process.env.mongodburi).then(
   () => { 
     console.log("mongoose connected successfully");
