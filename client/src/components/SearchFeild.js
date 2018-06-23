@@ -139,12 +139,12 @@ class IntegrationAutosuggest extends React.Component {
     })
   }
 
-  componentDidUpdate(prevProps) {
-    if(prevProps.alcSwitch !== this.props.alcSwitch)
-      setTimeout(() => {
-        this.updateSuggestions();
-      }, 50);
-  }
+  // componentDidUpdate(prevProps) {
+  //   if(prevProps.alcSwitch !== this.props.alcSwitch)
+  //     setTimeout(() => {
+  //       this.updateSuggestions();
+  //     }, 50);
+  // }
 
   handleSuggestionsFetchRequested = ({ value }) => {
     this.setState({
