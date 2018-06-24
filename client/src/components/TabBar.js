@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import FavoritesGrid from "../containers/FavoritesGridContainer.js"
 import Badge from '@material-ui/core/Badge';
 import SubmitForm from '../containers/SubmitFormContainer';
+import Info from './Info'
 
 
 function TabContainer({ children, dir }) {
@@ -27,6 +28,9 @@ const styles = theme => ({
   },
   padding: {
     padding: `0 ${theme.spacing.unit * 2}px`
+  },
+  indicator: {
+    height: "3px"
   }
 });
 
@@ -67,9 +71,10 @@ class FullWidthTabs extends React.Component {
           <Tabs
             value={this.state.value}
             onChange={this.handleChange}
-            indicatorColor="primary"
+            indicatorColor="secondary"
             textColor="inherit"
             centered
+            classes={{indicator: classes.indicator}}
           >
 
             <Tab label="Find Drinks" />
@@ -101,7 +106,7 @@ class FullWidthTabs extends React.Component {
 
           <TabContainer dir={theme.direction}><SubmitForm /></TabContainer>
 
-          <TabContainer dir={theme.direction}>Put something fucking awesome here</TabContainer>
+          <TabContainer dir={theme.direction}><Info /></TabContainer>
 
         </SwipeableViews>
 
