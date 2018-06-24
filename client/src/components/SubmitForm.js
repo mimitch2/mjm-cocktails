@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
@@ -11,6 +11,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import CheckboxLabels from './AlchCheckbox.js';
 import AlertDialogSlide from './Alert'
 import '../css/SubmitForm.css'
+
 
 
 //**** material-ui specific styles, all others in css file or in-line ********/
@@ -327,8 +328,8 @@ class SubmitForms extends React.Component {
   }
 }
 
-// TextFields.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// }
+SubmitForms.propTypes = {
+  classes: PropTypes.object.isRequired,
+}
 
 export default withStyles(styles)(SubmitForms);

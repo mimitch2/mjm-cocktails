@@ -1,7 +1,6 @@
-
 import App from "./App";
 import { connect } from "react-redux";
-import {loadFullData, loadFavorites, fullDataLoaded, addFav, deleteFav} from "./actions";
+import {loadFullData, loadFavorites, addFav, deleteFav} from "./actions";
 
 function mapStateToProps(state) {  
   return {
@@ -15,10 +14,6 @@ function mapDispatchToProps(dispatch) {
     loadFullData: () => {
       const action = loadFullData();
       dispatch(action);      
-    },
-    fullDataLoaded: () =>{
-      const action = fullDataLoaded();
-      dispatch(action);
     },
     loadFavorites: () => {
       const action = loadFavorites();

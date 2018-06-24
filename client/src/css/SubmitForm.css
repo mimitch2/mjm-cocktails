@@ -75,6 +75,18 @@
     display: none;
   }
 
+  /* MuiFormLabel-root-356 MuiInputLabel-root-351 MuiInputLabel-animated-355 */
+
+  .MuiInputLabel-formControl-352 {
+    font-family: 'Oswald', sans-serif!important;
+    font-weight: 200;
+  }
+
+  .MuiTypography-body1-103 {
+    font-family: 'Oswald', sans-serif!important;
+    font-weight: 200;
+  }
+
   /* #name, #measure, #ingredient, #instructions {
     font-family: Oswald;
     font-weight: 200;

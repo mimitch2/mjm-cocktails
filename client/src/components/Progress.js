@@ -9,7 +9,7 @@ const styles = theme => ({
   },
 });
 
-function CircularIndeterminate(props) {
+function LinearIndeterminate(props) {
   const { classes } = props;
   return (
     <div>
@@ -21,10 +21,10 @@ function CircularIndeterminate(props) {
   );
 }
 
-CircularIndeterminate.propTypes = {
+LinearIndeterminate.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CircularIndeterminate);
+export default withStyles(styles)(LinearIndeterminate);
 
 

@@ -83,7 +83,7 @@ const styles = theme => ({
     flexGrow: 1,
     position: 'relative',
     height: 50,
-    minWidth: "250px",
+    minWidth: "150px",
     marginTop: "24px"
   },
   suggestionsContainerOpen: {
