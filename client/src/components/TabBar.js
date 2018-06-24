@@ -27,7 +27,7 @@ const styles = theme => ({
   },
   padding: {
     padding: `0 ${theme.spacing.unit * 2}px`
-  },
+  }
 });
 
 class FullWidthTabs extends React.Component {
@@ -35,7 +35,6 @@ class FullWidthTabs extends React.Component {
     value: 0
   };
   
-
   handleChange = (event, value) => {
     this.setState({ value });
   };
@@ -59,10 +58,10 @@ class FullWidthTabs extends React.Component {
 
         <AppBar position="sticky" color="default" style={{backgroundColor: 'rgb(60, 60, 60)', color: "white"}}>
 
-          <span style={{ fontSize: "24px", marginTop: "8px", marginLeft: "10px", fontWeight: "500"}}>I NEED A DRINK</span> 
+          <span style={{ fontSize: "24px", marginTop: "44px", marginLeft: "35px", fontWeight: "500",postion: "absolute"}}>&nbsp; NEED A DRINK</span> 
 
-          <div className="icon" style={{marginBottom: "-40px", marginTop: "6px", marginLeft:"10px", display: "flex", alignItems: "center"}}>
-            <img src="/img/MartiniGlass.png" alt="" height="55px" width="55px" />
+          <div className="icon" style={{marginBottom: "-35px", marginTop: "-62px", marginLeft:"10px", display: "flex", alignItems: "center"}}>
+            <img src="/img/MartiniGlass.png" alt="" height="65px" width="55px" />
           </div>
 
           <Tabs
@@ -70,19 +69,16 @@ class FullWidthTabs extends React.Component {
             onChange={this.handleChange}
             indicatorColor="primary"
             textColor="inherit"
-            centered>
+            centered
+          >
 
             <Tab label="Find Drinks" />
-           
             <Tab label={ 
               <Badge className={classes.padding} color="primary" badgeContent={this.props.favorites.length} >Favorites
-              </Badge>
-            }/>
-
-            <Tab label="Add Drinks" />
-            
+              </Badge>}
+            />
+            <Tab label="Add A Drink" />        
             <Tab label="Info" />
-
           </Tabs>
 
         </AppBar>

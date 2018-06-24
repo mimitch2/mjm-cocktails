@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
@@ -10,8 +10,8 @@ import Tooltip from '@material-ui/core/Tooltip';
 import CloseIcon from '@material-ui/icons/Close';
 import CheckboxLabels from './AlchCheckbox.js';
 import AlertDialogSlide from './Alert'
-// import {addDrink} from './fetches.js'
 import '../css/SubmitForm.css'
+
 
 
 //**** material-ui specific styles, all others in css file or in-line ********/
@@ -220,16 +220,13 @@ class SubmitForms extends React.Component {
     const { classes } = this.props;
     
     return (
-      <div className="root">
+      <div className="submit-form-root">
    
         <form className = "upper" noValidate autoComplete="off" id="form">
           <div className="upperLeft">
             
             <div>
               <TextField
-                // InputProps={{
-                //   className: classes.white
-                // }}
                 id="name" label="Drink Name" 
                 className={classes.lgTextField}
                 value={this.state.name} onChange={this.handleChange}
@@ -331,8 +328,8 @@ class SubmitForms extends React.Component {
   }
 }
 
-// TextFields.propTypes = {
-//   classes: PropTypes.object.isRequired,
-// }
+SubmitForms.propTypes = {
+  classes: PropTypes.object.isRequired,
+}
 
 export default withStyles(styles)(SubmitForms);

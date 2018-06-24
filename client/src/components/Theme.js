@@ -8,12 +8,7 @@ import indigo from '@material-ui/core/colors/indigo';
 
 export default createMuiTheme({
   palette: {
-    primary: {
-      light: red[800],
-      main: red[800],
-      dark: red[800],
-      contrastText: '#fff',
-    },
+    primary: red,
     secondary: indigo,
     error: {
       light: '#FFFFFF',

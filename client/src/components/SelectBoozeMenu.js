@@ -58,7 +58,7 @@ class SimpleListMenu extends React.Component {
           >
             {/* <i class="fas fa-chevron-down"></i> */}
             <ListItemText
-              primary={<div style={{color:"white", fontSize: "14px", width: "max-content", marginLeft: "-8px", marginTop: "-3px"}}>BOOZE TYPE<i className="fas fa-chevron-down" style={{fontSize: '16px', color:"white", marginLeft:"24px"}}></i></div>}>
+              primary={<div style={{color:"white", fontSize: "14px", width: "max-content", marginLeft: "4px", marginTop: "-3px"}}>BOOZE TYPE<i className="fas fa-chevron-down" style={{fontSize: '16px', color:"white", marginLeft:"10px"}}></i></div>}>
             </ListItemText>
           </ListItem>
         </List>

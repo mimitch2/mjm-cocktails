@@ -16,13 +16,16 @@ const styles = theme => ({
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-
+  },
+  header: {
+    borderRadius: "20px 20px 0px 0px"
   },
   gridList: {
     cursor: 'pointer',
     maxWidth: 800,
     maxHeight: 600,
     background: "#444444",
+    borderRadius: "8px"
   },
   title: {
     color: 'white',
@@ -70,11 +73,9 @@ function FavoritesGrid(props) {
     <div className={classes.root} >
       <GridList cellHeight={350}
         className={classes.gridList}>
-        {/* <GridListTile key="ListSubheader" cols={2} style={{ height: 'auto' }} > */}
-        <ListSubheader  disableSticky={false} cols={2} style={{ fontFamily: "Oswald", fontSize: "2.0em", fontWeight: "500", color: "white", height: "auto", padding: "10px"}} component="div" >
+        <ListSubheader className={classes.header} cols={2} style={{ fontFamily: "Oswald", fontSize: "2.0em", fontWeight: "500", color: "white", height: "auto", padding: "10px"}} component="div" >
           Favorites
         </ListSubheader>
-        {/* </GridListTile> */}
         {tileData.map(tile => (
           <GridListTile key={tile.idDrink}>
             <img src={tile.strDrinkThumb}  alt={tile.strDrink} id = {tile.idDrink} 

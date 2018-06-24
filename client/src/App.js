@@ -11,8 +11,8 @@ import RaisedButtons from './components/RaisedButtons.js'
 import IntegrationAutosuggest from './components/SearchFeild'
 import CheckboxLabels from './components/Checkbox.js';
 import SimpleSnackbar from './components/SnackBar.js';
-import CircularIndeterminate from './components/Progress.js';
-// import PropTypes from "prop-types";
+import LinearIndeterminate from './components/Progress.js';
+import PropTypes from "prop-types";
 // import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 const styles ={
@@ -22,7 +22,7 @@ const styles ={
 }
 
 const boozeOptions = [
-  'Bourbon','Whiskey','Vodka','Gin', 'Rum', 
+  'Bourbon', 'Whiskey', 'Vodka', 'Gin', 'Rum', 
   'Tequila', 'Scotch', "Brandy",'Vermouth', "Bailey's",
   'Wine', 'Beer'
 ]
@@ -31,10 +31,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // fullData: null,
       alchOnlyData: [],
       isLoaded: false,
-      returnedDrink: [{
+      returnedDrink: [{//This is here just to have at least 1 drink prior to data loading
         _id: "5b2ab5ab04978014c1e980a6",idDrink: "13839",strDrink: "Manhattan",strCategory: "Cocktail",strIBA: "Unforgettables",strAlcoholic: "Alcoholic",strGlass: "Cocktail glass",strInstructions: "Stirred over ice, strained into a chilled glass, garnished, and seup.",strDrinkThumb: "/img/ec2jtz1504350429.jpg",strIngredient1: "Sweet Vermouth",strIngredient2: "Bourbon",strIngredient3: "Angostura bitters",strIngredient4: "Ice",strIngredient5: "Maraschino cherry",strIngredient6: "Orange peel",strMeasure1: "3/4 oz ",strMeasure2: "2 1/2 oz Blended ",strMeasure3: "dash ",strMeasure4: "2 or 3 ",strMeasure5: "1 ",strMeasure6: "1 twist of ",dateModified: "2017-09-02 12:07:09",
         __v: 0
       }],
@@ -53,6 +52,8 @@ class App extends Component {
     this.props.loadFavorites()
   }
 
+  //****************** componentDidUpdate *************************************/
+
   componentDidUpdate = (prevProps) => {
     if (prevProps.fullData !== this.props.fullData) {
       this.setState({ 
@@ -64,20 +65,6 @@ class App extends Component {
     }
   }
      
-  // continueAfterData = () => {
-  //   setTimeout(() => {
-      
-  //     this.setState({ 
-  //       alchOnlyData: this.props.fullData.filter(drk => drk.strAlcoholic === "Alcoholic"),
-  //       favorites: this.props.favorites
-  //     })
-  //     // console.log(this.props.fullData, this.state.favorites);
-  //     this.parseBoozeSearch()
-  //     this.getNewDrink(1, null)
-  //   }, 2000);
-  // }
-    
-    
   //****************** parseBoozeSearch *************************************/
 
   parseBoozeSearch = () => { 
@@ -219,7 +206,11 @@ class App extends Component {
 
  render() {
    if (!this.state.isLoaded){
-     return <CircularIndeterminate />
+     return (
+       <div style={{height:"100vh", width:"100vw", display: "flex", justifyContent:"center", alignItems: "center"}}>
+         <LinearIndeterminate />
+       </div>
+     )
    }
    return ( 
      <MuiThemeProvider theme={customTheme}>
@@ -237,25 +228,25 @@ class App extends Component {
            controls = {
              <div>
                <Grid container style = {styles.flex}>
-                 <Grid item xlg={4}>
+                 <Grid item xlg={3} style={{marginTop: "18px"}}>
+                   <CheckboxLabels label="Include Non-Alcoholic Drinks" action ={this.filterAlchSwitch} />
+                 </Grid>
+                 <Grid item xlg={3}>
                    <RaisedButtons getDrink={(type, data)=>this.getNewDrink(type, data)}/>
                  </Grid>
-                 <Grid item xlg={4}>
+                 <Grid item xlg={3}>
                    <SimpleListMenu 
                      getDrink={(type, data)=>this.getNewDrink(type, data)}
                      options={boozeOptions} />
                  </Grid>
-                 <Grid item xlg={4}>
-                   <div style={{marginLeft: "20px"}}>
+                 <Grid item xlg={3}>
+                   <div style={{marginLeft: "20px", marginTop: "-5px"}}>
                      <IntegrationAutosuggest getDrink={(type, data)=>this.getNewDrink(type, data)} drinks={this.returnFilteredDrinks()} alcSwitch={this.state.nonAlcSwitch} />
                    </div>
                  </Grid>
+               
                </Grid>
-               <Grid container style={ {justifyContent: "center", marginLeft: "173px"} }>
-                 <Grid item xlg={12}>
-                   <CheckboxLabels label="Include Non-Alcoholic Drinks" action ={this.filterAlchSwitch} />
-                 </Grid>
-               </Grid>
+             
              </div>}
          />
          <div id = "snack-bar-div" > 
@@ -268,5 +259,10 @@ class App extends Component {
 
  }
 }
+
+App.propTypes = {
+  fullData: PropTypes.array.isRequired,
+  favorites: PropTypes.array.isRequired
+};
 
 export default App;

@@ -1,7 +1,4 @@
 
-
-// http://localhost:3001
-
 export function loadFullData() {
   return function (dispatch) {
     fetch("https://mjm-cocktail-app.herokuapp.com/getAllData").then( (response) => {
@@ -85,18 +82,3 @@ export function addDrink(data) {
     });
   };
 }
-
-      
-// export function updateUser(id, user) {
-//   return function (dispatch) {
-//     fetch("/user/" + id, {
-//       method: "PUT",
-//       headers: {"Content-Type": "application/json"},
-//       body: JSON.stringify(user)
-//     }).then(res => res.json())
-//       .then(() => {
-//         dispatch(loadUsers());
-//       });
-//   };
-// }
-  
