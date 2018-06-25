@@ -78,7 +78,7 @@ function TitlebarGridList(props) {
     <div className={classes.root}>
       <GridList cellHeight={350}
         className={classes.gridList}>
-        <ListSubheader cols={2} style={{ fontFamily: "Oswald", fontSize: "2.0em", fontWeight: "500", color: "white", height: "auto", padding: "10px"}} component="div" >{tileData.length}&nbsp;{props.boozeType.charAt(0).toUpperCase() + props.boozeType.slice(1)}&nbsp;Drinks. &nbsp;Click picture to get recipe.
+        <ListSubheader cols={2} style={{ fontFamily: "Oswald", fontSize: "2.0em", fontWeight: "300", color: "white", height: "auto", padding: "10px"}} component="div" >{tileData.length}&nbsp;{props.boozeType.charAt(0).toUpperCase() + props.boozeType.slice(1)}&nbsp;Drinks. &nbsp;Click picture to get recipe.
         </ListSubheader>
    
         {tileData.map((tile, index) => (
