@@ -75,9 +75,10 @@
     display: none;
   }
 
+  /*MuiFormControl-root-298 MuiFormControl-marginNormal-299 SubmitForms-lgTextField-350
   /* MuiFormLabel-root-356 MuiInputLabel-root-351 MuiInputLabel-animated-355 */
-
-  .MuiInputLabel-formControl-352 {
+  /* MuiInput-root-302 MuiInput-formControl-303 MuiInput-underline-306 */
+  .MuiInput-input-310 {
     font-family: 'Oswald', sans-serif!important;
     font-weight: 200;
   }
@@ -92,11 +93,11 @@
     font-weight: 200;
   }
 
-  #name, #measure, #ingredient, #instructions {
+  .text-field {
     font-family: Oswald!important;
     font-weight: 200;
   }
-  /* .MuiFormLabel-root-90{
+  .MuiFormLabel-root-90{
     color: white!important;
     opacity: .6;
   } 
@@ -112,5 +113,3 @@
   #checkbox-color{
     color: white!important
   } 
-  /* /* MuiInput-root-95.MuiInput-formControl-96.MuiInput-underline-99:before{
-  } */ 
