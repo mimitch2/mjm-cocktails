@@ -27,9 +27,6 @@ const styles = theme => ({
     marginRight: theme.spacing.unit,
     width: "90%",
     floatingLabelStyle: "white"
-  },
-  white: {
-    color: 'primary'
   }
 });
 
@@ -221,10 +218,9 @@ class SubmitForms extends React.Component {
     
     return (
       <div className="submit-form-root">
-   
-        <form className = "upper" noValidate autoComplete="off" id="form">
+     
+        <form className = "upper" noValidate autoComplete="off" id="form" >x
           <div className="upperLeft">
-            
             <div>
               <TextField
                 id="name" label="Drink Name" 
@@ -293,7 +289,7 @@ class SubmitForms extends React.Component {
           </div>
 
         </form>
-  
+      
         <div className="lower">
           <div className="lowerLeft">
             <div>
