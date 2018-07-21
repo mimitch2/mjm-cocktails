@@ -82,7 +82,7 @@ class FullWidthTabs extends React.Component {
               <Badge className={classes.padding} color="primary" badgeContent={this.props.favorites.length} >Favorites
               </Badge>}
             />
-            <Tab label="Add A Drink" />        
+            {/* <Tab label="Add A Drink" />         */}
             <Tab label="Info" />
           </Tabs>
 
@@ -104,7 +104,7 @@ class FullWidthTabs extends React.Component {
               switchTab={this.switchTabsOnFavClick}/> 
           </TabContainer>
 
-          <TabContainer dir={theme.direction}><SubmitForm /></TabContainer>
+          {/* <TabContainer dir={theme.direction}><SubmitForm /></TabContainer> */}
 
           <TabContainer dir={theme.direction}><Info /></TabContainer>
 

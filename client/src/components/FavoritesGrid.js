@@ -18,7 +18,7 @@ const styles = theme => ({
     overflow: 'hidden',
   },
   header: {
-    borderRadius: "20px 20px 0px 0px"
+    // borderRadius: "20px 20px 0px 0px"
   },
   gridList: {
     cursor: 'pointer',

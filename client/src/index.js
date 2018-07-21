@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './css/index.css';
 import App from './AppContainer';
 import registerServiceWorker from './registerServiceWorker';
-// import {getFavs} from './components/fetches.js'
 import store from "./store";
 import {Provider} from "react-redux";
 
